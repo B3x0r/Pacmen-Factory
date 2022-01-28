@@ -26,6 +26,7 @@ function makePac() {
   newimg.style.position = 'absolute';
   newimg.src = 'PacMan1.png';
   newimg.open = 0;
+  newimg.count = 0;
   newimg.width = 100;
   // set position here
   newimg.style.left = position.x;
@@ -52,9 +53,14 @@ function update() {
     item.newimg.style.left = item.position.x;
     item.newimg.style.top = item.position.y;
     
-    item.open = item.open ? 0 : 1;
-    if (item.velocity.x < 0) item.src = pacArray[1] [item.open];
-    if (item.velocity.x > 0) item.src = pacArray[0] [item.open];
+    if (item.newimg.count == 10) {
+      item.open = item.open ? 0 : 1;
+      if (item.velocity.x < 0) item.newimg.src = pacArray[1] [item.open];
+      if (item.velocity.x > 0) item.newimg.src = pacArray[0] [item.open];
+      item.newimg.count = 0
+      } else {
+        item.newimg.count++;
+      }
   });
   setTimeout(update, 20);
 }
