@@ -12,7 +12,7 @@ function setToRandom(scale) {
     x: Math.random() * scale,
     y: Math.random() * scale,
   };
-}
+} 
 
 // Factory to make a PacMan at a random position with random velocity
 function makePac() {
@@ -25,12 +25,13 @@ function makePac() {
   let newimg = document.createElement('img');
   newimg.style.position = 'absolute';
   newimg.src = 'PacMan1.png';
+  newimg.open = 0;
   newimg.width = 100;
-  // TODO: set position here
+  // set position here
   newimg.style.left = position.x;
   newimg.style.top = position.y;
  
-  // TODO add new Child image to game
+  // add new Child image to game
   game.appendChild(newimg);
 
   // return details in an object
@@ -55,9 +56,12 @@ function update() {
 }
 
 function checkCollisions(item) {
-  // TODO: detect collision with all walls and make pacman bounce
-          if (item.position.x + item.velocity.x + item.newimg.width > window.innerWidth || item.position.x + item.velocity.x < 0) item.velocity.x = -item.velocity.x;
-        if (item.position.y + item.velocity.y + item.newimg.height > window.innerHeight || item.position.y + item.velocity.y < 0) item.velocity.y = -item.velocity.y;
+  // detect collision with all walls and make pacman bounce
+  if (item.position.x + item.velocity.x + item.newimg.width > window.innerWidth || item.position.x + item.velocity.x < 0) item.velocity.x = -item.velocity.x;
+  if (item.position.y + item.velocity.y + item.newimg.height > window.innerHeight || item.position.y + item.velocity.y < 0) item.velocity.y = -item.velocity.y;
+  item.open = item.open ? 0 : 1;
+  if (velocity.x < 0) item.src = pacArray[1] [item.open];
+  if (velocity.x > 0) item.src = pacArray[0] [item.open];
 
 }
 
