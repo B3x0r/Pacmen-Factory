@@ -60,9 +60,8 @@ function checkCollisions(item) {
   if (item.position.x + item.velocity.x + item.newimg.width > window.innerWidth || item.position.x + item.velocity.x < 0) item.velocity.x = -item.velocity.x;
   if (item.position.y + item.velocity.y + item.newimg.height > window.innerHeight || item.position.y + item.velocity.y < 0) item.velocity.y = -item.velocity.y;
   item.open = item.open ? 0 : 1;
-  if (velocity.x < 0) item.src = pacArray[1] [item.open];
-  if (velocity.x > 0) item.src = pacArray[0] [item.open];
-
+  if (item.velocity.x < 0) item.src = pacArray[1] [item.open];
+  if (item.velocity.x > 0) item.src = pacArray[0] [item.open];
 }
 
 function makeOne() {
