@@ -1,7 +1,7 @@
 # Pacmen-Factory
  
 #### Description:
-Press a button to add Pacmen to the screen and watch them bounce around.
+Press a button to add PacMen to the screen and watch them bounce around after pressing the "Start Game" button. The PacMen even change directions and chomp.
 
 <img src= "PacMan1.png" width='200'/>
  
